@@ -1,6 +1,6 @@
 from fastapi.testclient import TestClient
 
-from app import app, schema
+from app import app
 
 from mysk_utils.response import InternalCode
 
