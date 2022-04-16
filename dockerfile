@@ -15,9 +15,9 @@ COPY ./requirements.txt ./requirements.txt
 RUN pip install --no-cache-dir --upgrade -r ./requirements.txt
 
 # 
-COPY . .
+COPY ./src .
 
 # 
-CMD ["python", "src/app.py"]
+CMD ["python", "app.py"]
 
 EXPOSE $B_PORT

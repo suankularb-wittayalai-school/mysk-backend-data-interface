@@ -28,7 +28,7 @@ pip install -r requirements.txt
 4. Run the application
 
 ```powershell
-python src/app.py
+cd src && python app.py
 ```
 
 ## Deployment
@@ -36,13 +36,13 @@ python src/app.py
 1. Pull the docker image
 
 ```powershell
-docker pull ghcr.io/suankularb-wittayalai-school/mysk-backend-fastapi-template:latest
+docker pull ghcr.io/suankularb-wittayalai-school/mysk-backend-data-interface:main
 ```
 
 2. Run the docker image
 
 ```powershell
-docker run -p 5000:5000 -d ghcr.io/suankularb-wittayalai-school/mysk-backend-fastapi-template:latest
+docker run -p 5000:5000 -d ghcr.io/suankularb-wittayalai-school/mysk-backend-data-interface:main
 ```
 
 **Note**: If you want to deploy the application along with a database we need to write your own docker-compose.yml file or setup a kubernetes cluster.
