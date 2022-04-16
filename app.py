@@ -1,4 +1,7 @@
 from fastapi import FastAPI, Response, status
+import strawberry
+from strawberry.fastapi import GraphQLRouter
+
 
 # from starlette.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
@@ -6,10 +9,16 @@ import uvicorn
 import os
 
 from mysk_utils.response import InternalCode
+from schema.query import Query
 
 load_dotenv()
 
 app = FastAPI()
+
+schema = strawberry.Schema(query=Query)
+graphql_router = GraphQLRouter(schema)
+
+app.include_router(graphql_router, prefix="/graphql")
 
 
 @app.get(

@@ -1,6 +1,6 @@
 from fastapi.testclient import TestClient
 
-from ..app import app
+from app import app
 
 from mysk_utils.response import InternalCode
 
@@ -14,3 +14,15 @@ def test_health_check():
     )
     assert response.status_code == 200
     assert response.json() == {"status": True}
+
+
+def test_gql_health_check():
+    query = """
+    query test {
+        healthCheck
+    }
+    """
+    response = client.post("/graphql", json={"query": query})
+
+    assert response.json() == {"data": {"healthCheck": True}}
+    assert response.status_code == 200
