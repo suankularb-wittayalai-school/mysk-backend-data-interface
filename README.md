@@ -28,7 +28,7 @@ pip install -r requirements.txt
 4. Run the application
 
 ```powershell
-python src/app.py
+cd src && python app.py
 ```
 
 ## Deployment
